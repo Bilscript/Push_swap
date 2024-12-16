@@ -6,7 +6,7 @@
 /*   By: bhamani <bhamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:41:44 by bhamani           #+#    #+#             */
-/*   Updated: 2024/12/16 16:40:30 by bhamani          ###   ########.fr       */
+/*   Updated: 2024/12/16 16:44:41 by bhamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,20 @@ void	swap_ab(t_list **pile_b, t_list **pile_a)
 {
 	t_list	*temp;
 
-	if (!pile_a || !(*pile_a) || !(*pile_a)->next)
-		return ;
-	temp = (*pile_a)->next;
-	(*pile_a)->next = temp->next;
-	temp->next = *pile_a;
-	*pile_a = temp;
-	if (!pile_b || !(*pile_b) || !(*pile_b)->next)
-		return ;
-	temp = (*pile_b)->next;
-	(*pile_b)->next = temp->next;
-	temp->next = *pile_b;
-	*pile_b = temp;
+	if (pile_a && (*pile_a) && (*pile_a)->next)
+	{
+		temp = (*pile_a)->next;
+		(*pile_a)->next = temp->next;
+		temp->next = *pile_a;
+		*pile_a = temp;
+	}
+	if (pile_b && (*pile_b) && (*pile_b)->next)
+	{
+		temp = (*pile_b)->next;
+		(*pile_b)->next = temp->next;
+		temp->next = *pile_b;
+		*pile_b = temp;
+	}
 	write(1, "ss\n", 3);
 }
 
