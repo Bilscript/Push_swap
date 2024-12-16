@@ -6,7 +6,7 @@
 /*   By: bhamani <bhamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:41:44 by bhamani           #+#    #+#             */
-/*   Updated: 2024/12/16 16:44:41 by bhamani          ###   ########.fr       */
+/*   Updated: 2024/12/16 16:46:02 by bhamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	swap_b(t_list **pile_b)
 	temp->next = *pile_b;
 	*pile_b = temp;
 	write(1, "sb\n", 3);
-} 
+}
 
 void	swap_ab(t_list **pile_b, t_list **pile_a)
 {
