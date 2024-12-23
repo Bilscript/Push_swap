@@ -6,7 +6,7 @@
 /*   By: bhamani <bhamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:43:43 by bhamani           #+#    #+#             */
-/*   Updated: 2024/12/23 12:26:58 by bhamani          ###   ########.fr       */
+/*   Updated: 2024/12/23 17:30:18 by bhamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		ft_strstr(char *str, char *to_find);
+int		ft_strcmp(char *s1, char *s2);
 void	tab_free(char **tab);
 int		checkargs(char **tab, char **av);
 char	**ft_split(char const *s, char c);

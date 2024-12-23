@@ -6,7 +6,7 @@
 /*   By: bhamani <bhamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:52:41 by bhamani           #+#    #+#             */
-/*   Updated: 2024/12/23 12:48:03 by bhamani          ###   ########.fr       */
+/*   Updated: 2024/12/23 17:35:39 by bhamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,39 +37,58 @@ int	checkchar(char **tab)
 
 int	checkocc(char **av)
 {
-	int	i;
-	int	j;
-	char **tab;
+	int		i;
+	int		j;
 
-	tab = ft_split(av[1], ' ');
-	j = 1;
-	while (tab[j])
+	i = 0;
+	while (av[i])
 	{
-		i = 0;
-		while (tab[i])
+		j = i + 1;
+		while (av[j])
 		{
-			if (!ft_strstr(tab[j], tab[i]))
+			if (!ft_strcmp(av[i], av[j]))
 			{
 				printf("FFFFFFFF\n");
-				return (1);
+				return (0);
 			}
-			i++;
+			j++;
 		}
-		j++;
+		i++;
 	}
-	return (0);
+	return (1);
 }
 
+int	checksagrm(char **av)
+{
+	int		i;
+	int		j;
+	char	**tab;
+
+	tab = ft_split(av[1], ' ');
+	i = 0;
+	while (tab[i])
+	{
+		j = i + 1;
+		while (tab[j])
+		{
+			if (!ft_strcmp(tab[i], tab[j]))
+			{
+				printf("FFFFFFFF\n");
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	checkargs(char **tab, char **av)
 {
 	if (!checkchar(tab))
 		return (0);
-	if (!checkocc(av))
-	{
-		printf("RRRRRR\n");
-		return (1);
-	}
+	if (!checkocc(av) || !checksagrm(av))
+		return (0);
 	return (1);
 }
 
@@ -83,6 +102,7 @@ t_list	*parseur(int ac, char **av)
 
 	pile_a = NULL;
 	i = 1;
+
 	while (av[i])
 	{
 		j = 0;
@@ -133,9 +153,7 @@ void	tab_free(char **tab)
 		i++;
 	}
 	free(tab);
-	tab = NULL;
 }
-
 
 int	main(int argc, char **argv)
 {

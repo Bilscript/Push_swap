@@ -81,49 +81,17 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-/*
-int ft_strstr(char *str, char *to_find)
+
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
 
 	i = 0;
-	if (to_find[0] == '\0')
+	while (s1[i] == s2[i] && (s1[i] != '\0' || s2[i] != '\0'))
 	{
-		return (1);
-	}
-	while (str[i] != '\0')
-	{
-		j = 0;
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-			j++;
-		if (to_find[j] == '\0')
-			return (0);
 		i++;
 	}
-	return (1);
-}
-*/
-int ft_strstr(char *str, char *to_find)
-{
-	int	i;
-	int	j;
-
-    i = 0;
-	if (to_find[0] == '\0')
-	{
-		return (1);
-	}
-	while (str[i] != '\0')
-	{
-		j = 0;
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-			j++;
-		if (to_find[j] == '\0')
-			return (1);
-		i++;
-	}
-	return (0);
+	return (s1[i] - s2[i]);
 }
 
 
