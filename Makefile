@@ -1,33 +1,39 @@
-SRCS	= utils/ft_atoi.c utils/ft_lstadd_back.c utils/ft_lstadd_front.c utils/ft_lstclear.c utils/ft_lstdelone.c utils/ft_lstiter.c utils/ft_lstlast.c utils/ft_lstmap.c utils/ft_lstnew.c utils/ft_lstsize.c utils/ft_split.c utils/ft_strchr.c utils/ft_strlen.c utils/ft_substr.c instructor.c instructor2.c parseur.c
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bhamani <bhamani@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/22 14:00:54 by bhamani           #+#    #+#              #
+#    Updated: 2025/01/22 14:05:11 by bhamani          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
+NAME = push_swap
 
-OBJS	= ${SRCS:.c=.o}
+SRCS = args_utils.c chunk_sort.c ft_split.c index_utils.c \
+       instructor.c instructor2.c instructor3.c list_utils.c \
+       parseur.c push_swap.c str_utils.c
+OBJS = $(SRCS:.c=.o)
 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-CC	= gcc
+all: $(NAME)
 
-RM	= rm -f
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-CFLAGS    = 
-
-NAME    = push_swap.a
-
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
-all: ${NAME}
-
-${NAME}:    ${OBJS}
-	ar rc ${NAME} ${OBJS}
-	ranlib ${NAME}
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	${RM} ${OBJS}
+	rm -f $(OBJS)
 
-fclean:	clean
-	${RM} ${NAME}
+fclean: clean
+	rm -f $(NAME)
 
-re:	fclean all
+re: fclean all
 
-
-.PHONY:	clean fclean all re
+.PHONY: all clean fclean re

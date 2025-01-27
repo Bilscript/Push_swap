@@ -58,3 +58,32 @@ char	**ft_split(char const *s, char c)
 	res[i] = NULL;
 	return (res);
 }
+
+long	ft_atoi(const char *str)
+{
+	int		i;
+	long	nb;
+	int		sign;
+
+	sign = 1;
+	nb = 0;
+	i = 0;
+	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	nb = nb * sign;
+	if (nb > INT_MAX || nb < INT_MIN)
+		return (LONG_MAX);
+	return (nb);
+}

@@ -84,14 +84,19 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	unsigned int	i;
+	unsigned int	i1;
+	unsigned int	i2;
 
-	i = 0;
-	while (s1[i] == s2[i] && (s1[i] != '\0' || s2[i] != '\0'))
+	i1 = 0;
+	i2 = 0;
+	if (s1[i1] == '+')
+		i1++;
+	if (s2[i2] == '+')
+		i2++;
+	while (s1[i1] == s2[i2] && (s1[i1] != '\0' || s2[i2] != '\0'))
 	{
-		i++;
+		i1++;
+		i2++;
 	}
-	return (s1[i] - s2[i]);
+	return (s1[i1] - s2[i2]);
 }
-
-

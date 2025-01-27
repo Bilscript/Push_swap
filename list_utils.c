@@ -25,10 +25,18 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	is_sort(t_list **lst)
 {
-	new->next = *lst;
-	*lst = new;
+	t_list	*temp;
+
+	temp = *lst;
+	while (temp && temp->next)
+	{
+		if (temp->content > temp->next->content)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
 }
 
 t_list	*ft_lstlast(t_list *lst)
@@ -55,13 +63,13 @@ t_list	*ft_lstnew(int content)
 	return (element);
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list **lst)
 {
 	size_t	i;
 	t_list	*temp;
 
 	i = 0;
-	temp = lst;
+	temp = *lst;
 	while (temp != NULL)
 	{
 		temp = temp->next;
