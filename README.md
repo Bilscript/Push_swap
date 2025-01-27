@@ -102,10 +102,10 @@ Le programme doit respecter les limites suivantes :
 ```
 Performance Chart:
 ┌────────────┐   
-│     ▃      │ 3 nombres (3 coups)
-│    ▃ ▃     │ 5 nombres (12 coups)
-│   ▃   ▃    │ 100 nombres (700 coups)
-│  ▃     ▃   │ 500 nombres (5500 coups)
+│     ▃     │ 3 nombres (3 coups)
+│    ▃ ▃   │ 5 nombres (12 coups)
+│   ▃   ▃  │ 100 nombres (700 coups)
+│  ▃     ▃ │ 500 nombres (5500 coups)
 └────────────┘
 ```
 
